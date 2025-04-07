@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { set_sidebar } from '../utils/auto_sidebar.mjs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,33 +7,44 @@ export default defineConfig({
   description: "A VitePress Site",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+
     nav: [
       { text: '鸭棚子', link: '/' },
       { text: '八股', items:[
-        {text:'HTML', link:'/markdown-examples'},
-        {text:'CSS', link:'/markdown-examples'},
-        {text:'JavaScript', link:'/markdown-examples'},
-        {text:'Vue3', link:'/markdown-examples'},
-        {text:'React', link:'/markdown-examples'}
+        {text:'HTML', link:'/damn/html/'},
+        {text:'CSS', link:'/damn/css/'},
+        {text:'JavaScript', link:'/damn/javascript/'},
+        {text:'Vue3', link:'/damn/vue3/'},
+        {text:'React', link:'/damn/react/'}
       ] },
-      { text: '算法', link: '/markdown-examples' },
-      { text: '面经', link: '/markdown-examples' },
-      { text: '我有健忘症', link: '/markdown-examples' },
+      { text: '算法', link: '/algorithm' },
+      { text: '面经', link: '/frontend_interview' },
+      { text: '我有健忘症', link: '/toremember' },
       { text: '不是东西', items:[
-        {text:'胡言乱语', link:'/markdown-examples'},
-        {text:'人生是旷野', link:'/markdown-examples'}
+        {text:'胡言乱语', link:'/others/diary/'},
+        {text:'人生是旷野', link:'/others/travel/'}
       ] }
     ],
+    // sidebar: [
+    //   {
+    //     text: 'Examples',
+    //     items: [
+    //       { text: 'Markdown Examples', link: '/markdown-examples' },
+    //       { text: 'Runtime API Examples', link: '/api-examples' }
+    //     ]
+    //   }
+    // ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      "/damn/html/": set_sidebar("/damn/html"),
+      "/damn/css/": set_sidebar("/damn/css"),
+      "/damn/javascript/": set_sidebar("/damn/javascript"),
+      "/damn/vue3/": set_sidebar("/damn/vue3"),
+      "/damn/react/": set_sidebar("/damn/react"),
+      "/others/diary/": set_sidebar("/others/diary"),
+      "/others/travel/": set_sidebar("/others/travel"),
+    },
+
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
