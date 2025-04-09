@@ -42,3 +42,5 @@
 }
 
 ```
+
+`"console": "externalTerminal"`:转为在终端里，可以交互了
